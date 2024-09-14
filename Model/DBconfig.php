@@ -16,7 +16,7 @@
             exit;
         }else{
             mysqli_set_charset($this->conn, 'utf8');
-            echo 'Connected';
+           // echo 'Connected';
         }
 
         return $this->conn;
@@ -74,11 +74,15 @@
         return 0;
     }    
     
-    #Insert Data
-    public function Insert($user, $pass){
-        $sql = "INSERT INTO danhsachtaikhoannguoidung(username, password) VALUES($user, $pass)";
-        return $this->execute($sql);
-    }
+    #Insert Data Account
+    public function Insert($user, $pass) {
+        $sql = "INSERT INTO danhsachtaikhoannguoidung(username, password) VALUES(?, ?)";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("ss", $user, $pass); // 's' for string type
+        $password = password_hash($pass, PASSWORD_DEFAULT); // Hash the password before inserting
+        $stmt->execute();
+        return $stmt->affected_rows; // Use affected_rows to check if insert was successful
+      }
 
     #Update Data
     public function Update($user, $pass){
@@ -92,6 +96,6 @@
         $sql = "DELETE FROM $table WHERE username = '$user'";
         return $this->execute($sql);
     }
-  
+    
 }
 ?>

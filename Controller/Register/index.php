@@ -1,5 +1,5 @@
 <?php
-
+require('View/Message/message.php');
     if(isset($_GET['action'])){
         $action = $_GET['action'];
     }else{
@@ -8,30 +8,30 @@
     $success = array();
 
     switch ($action) {
-        case 'add':
+        case 'add_user':
             if(isset($_POST['add_account'])){
                 $user = $_POST['username'];
-                $pass = $_POST['pass'];
-                $re_pass = $_POST['re_pass'];
+                $pass = $_POST['password'];
+                $re_pass = $_POST['re_password'];
                 $captcha = $_POST['captcha'];
-                if(!empty($user)){
-                    if(!empty($pass)){
-                        if(!empty($re_pass)){
-                            if($db->Insert($user, $pass)){
-                                $thanhcong[] = 'add_success';
-                            }
-                        }else{
-                            echo "<script>alert('Re_pass is empty'); </script>";
-                        }
-                    }else{
-                        echo "<script>alert('Password is empty ');</script>";
+                if (empty($user) || empty($pass) || empty($re_pass)) {
+                    error('empty_fields');
+                } else {
+                    if (checkPass($pass, $re_pass)) {
+                        $db->Insert($user, $pass);
+                        $success[] = 'add_success';
+                        echo success('add_user_success');
+                        exit;                       
+                    } else {
+                        error('password_mismatch');
                     }
-                }else{
-                    echo "<script>alert('Username/Email is empty ');</script>";
                 }
+                
             }
-            require_once('View/Register/register.php');
+            require_once('View/Register/index.php');
+            
             break;
+           
         
         default:
             # code...

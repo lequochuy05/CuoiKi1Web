@@ -34,7 +34,7 @@ header {
 .logo-name {
   font-weight: bold;
   color: red;
-  font-size: 30px;
+  font-size: 35px;
   margin-right: 10px;
   animation: logoAnimation 2s infinite;
 }
@@ -46,7 +46,7 @@ header {
 }
 
 .logo-text a:hover {
-  color: #8b4513;
+  color: #158791;
 }
 
 /* Main styles */
