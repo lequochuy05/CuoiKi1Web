@@ -3,19 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="register.css">
-    <title>Login</title>
+    <link rel="Shortcut icon" href="img/logo.png" />
+    <link rel="stylesheet" href="View/Register/style.css ">
+    <link rel="stylesheet" href="View/Login/style.css">
 </head>
 <body>
-    <script src="register.js"></script>
+    <script src="View/Register/register.js"></script>
 </body>
 </html>
 <?php
     include "Model/DBconfig.php";
     include "Model/Register/register.php";
+    include "Model/Login/login.php";
     $db = new Database();
     $db->connect();
-
+    $db_regis = new db_register();
+    $db_log = new db_login();
+    
+   
     if(isset($_GET['controller'])){
         $controller = $_GET['controller'];
 

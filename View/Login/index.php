@@ -1,15 +1,9 @@
-<?php
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OnixShop</title>
-    <link rel="Shortcut icon" href="img/home/logo.png" />
+    <!-- <link rel="Shortcut icon" href="img/logo.png" /> -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -17,57 +11,56 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="style.css" />
-    <script src="Login.js"></script>
+    <title>OnixShop - Login</title>
   </head>
   <body>
     <div class="container">
       <header>
         <div id="head1">
-          <img src="img/home/logo.png" alt="" />
+          <img src="img/logo.png" alt="" />
           <div class="logo-text">
             <div class="logo-name">ONIX</div>
-            <a href="#">Đăng Nhập</a>
+            <a href="index.php?controller=register&action=add_user">Register</a>
           </div>
         </div>
         <div id="head2">
-          <a href="#">Giới thiệu - Onix</a>
+          <a href="#">About - Onix</a>
         </div>
       </header>
       <main>
-        <div class="than1Main"><img src="img/home/logo.png" alt="" /></div>
-        <div class="than2Main">
-          <div class="head">Đăng nhập</div>
-          <div class="middle">
-            <input
-              type="text"
-              placeholder="Email/Số điện thoại/Tên đăng nhập"
-            />
-            <br />
-            <input type="password" placeholder="Mật khẩu" /> <br />
-            <button onclick="login()">ĐĂNG NHẬP</button> <br />
-
-            <br />
-            <div class="register-section">
-              <div class="register">
-                <a href="register.html">Đăng ký</a>
-
-                <span>hoặc</span>
-                <a href="#">Quên mật khẩu</a>
-              </div>
-              <div class="social-buttons">
-                <button class="btn-facebook">
-                  <i class="fab fa-facebook-f"></i> Đăng nhập bằng Facebook
-                </button>
-                <button class="btn-google">
-                  <i class="fab fa-google"></i> Đăng nhập bằng Google
-                </button>
-                <button class="btn-twitter">
-                  <i class="fab fa-twitter"></i> Đăng nhập bằng Twitter
-                </button>
+        <div class="main1"><img src="img/logo.png" alt="" /></div>
+        <div class="main2">
+          <form action="" method="POST">
+            <div class="head">Login</div>
+            <div class="middle">
+              <input
+                type="text" name="username"
+                placeholder="Email/Username"
+              />
+              <br />
+              <input type="password" name="password" placeholder="Password" /> 
+              <input type="submit" name="login" value="Login">
+              <br />
+              <div class="register-section">
+                <div class="register">
+                  <a href="index.php?controller=register&action=add_user">Register</a> 
+                  <span>or</span>
+                  <a href="#">Forgot Password</a>
+                </div>
+                <div class="social-buttons">
+                  <button class="btn-facebook">
+                    <i class="fab fa-facebook-f"></i> Sign in with Facebook
+                  </button>
+                  <button class="btn-google">
+                    <i class="fab fa-google"></i> Sign in with Google
+                  </button>
+                  <button class="btn-twitter">
+                    <i class="fab fa-twitter"></i>Sign in with Twitter
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
+          </form>
         </div>
         <div id="termsModal" class="modal">
           <div class="modal-content">

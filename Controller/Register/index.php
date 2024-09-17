@@ -1,40 +1,38 @@
 <?php
-require('View/Message/message.php');
+
     if(isset($_GET['action'])){
         $action = $_GET['action'];
     }else{
         $action = '';
     }
-    $success = array();
+    $add_successful = array();
 
     switch ($action) {
         case 'add_user':
             if(isset($_POST['add_account'])){
-                $user = $_POST['username'];
-                $pass = $_POST['password'];
-                $re_pass = $_POST['re_password'];
+                $input_user = $_POST['username'];
+                $input_pass = $_POST['password'];
+                $input_re_pass = $_POST['re_password'];
                 $captcha = $_POST['captcha'];
-                if (empty($user) || empty($pass) || empty($re_pass)) {
-                    error('empty_fields');
+                if (empty($input_user) || empty($input_pass) || empty($input_re_pass)) {
+                    echo 'Please fill in all information.';
                 } else {
-                    if (checkPass($pass, $re_pass)) {
-                        $db->Insert($user, $pass);
-                        $success[] = 'add_success';
-                        echo success('add_user_success');
+                    if (checkPass_input($input_pass, $input_re_pass)) {
+                        $hashPass = password_hash($input_pass, PASSWORD_DEFAULT);                       
+                        $db_regis->Insert($input_user, $hashPass);
+                        $add_successful[] = 'add_success';
+                        echo 'User Added Successfully!';
                         exit;                       
                     } else {
-                        error('password_mismatch');
+                        echo 'Passwords do not match.';
                     }
                 }
                 
             }
-            require_once('View/Register/index.php');
-            
-            break;
-           
-        
+            require_once('View/Register/index.php');  
+            break; 
         default:
-            # code...
+            echo 'Unknown error';
             break;
     }
 ?>

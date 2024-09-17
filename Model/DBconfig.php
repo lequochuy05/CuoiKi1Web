@@ -20,6 +20,7 @@
         }
 
         return $this->conn;
+       
     }
     #execute sql
     public function execute($sql) {
@@ -73,29 +74,6 @@
         }
         return 0;
     }    
-    
-    #Insert Data Account
-    public function Insert($user, $pass) {
-        $sql = "INSERT INTO danhsachtaikhoannguoidung(username, password) VALUES(?, ?)";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bind_param("ss", $user, $pass); // 's' for string type
-        $password = password_hash($pass, PASSWORD_DEFAULT); // Hash the password before inserting
-        $stmt->execute();
-        return $stmt->affected_rows; // Use affected_rows to check if insert was successful
-      }
-
-    #Update Data
-    public function Update($user, $pass){
-        $sql = "UPDATE danhsachtaikhoannguoidung SET password = '$pass'
-                WHERE username ='$user'";
-        return $this->execute($sql);
-    }
-
-    #Delete Data
-    public function Delete($user, $table){
-        $sql = "DELETE FROM $table WHERE username = '$user'";
-        return $this->execute($sql);
-    }
     
 }
 ?>

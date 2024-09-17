@@ -2,17 +2,19 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <!-- <link rel="Shortcut icon" href="img/logo.png" /> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>OnixShop - Register</title>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <div class="container">
       <header>
         <div id="head1">
-          <img src="logo.png" alt="" />
+          <img src="img/logo.png" alt="" />
           <div class="logo-text">
             <div class="logo-name">ONIX</div>
-            <a href="#">Login</a>
+            <a href="index.php?controller=login&action=login">Login</a>
           </div>
         </div>
         <div id="head2">
@@ -20,7 +22,7 @@
         </div>
       </header>
       <main>
-        <div class="main1"><img src="logo.png" alt="" /></div>
+        <div class="main1"><img src="img/logo.png" alt="" /></div>
         <form action="" method="POST">
             <div class="main2">
             <div class="head">Register Form</div>
