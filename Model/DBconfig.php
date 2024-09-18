@@ -51,20 +51,6 @@
         }
         return $data;
     }
-
-    //  #get Data by Id
-    //  public function getDataByID($table, $id){
-    //     $stmt = $this->conn->prepare("SELECT *FROM $table WHERE id = ?");
-    //     $stmt->bind_param("i", $id);
-    //     $stmt->execute();
-    //     $result = $stmt->get_result();
-    //     if($result->num_rows > 0){
-    //         return $result->fetch_assoc();
-    //     }else{
-    //         return 0;
-    //     }        
-    // }
-    
     #Count
     public function num_rows(){
         if($this->result){

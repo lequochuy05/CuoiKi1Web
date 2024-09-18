@@ -1,3 +1,10 @@
+<?php if (isset($message)): ?>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            showModal("<?php echo $message; ?>");
+        });
+    </script>
+<?php endif; ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -33,12 +40,25 @@
                     />
                     <input type="password" name="password" placeholder="Password" />
                     <input type="password" name="re_password" placeholder="Re-password" /> 
-                    <input type="captcha" name="captcha" placeholder="Captcha code" />
+                    <input type="captcha" name="captcha" hidden placeholder="Captcha code" />
                     <input type="submit" name="add_account" value="Register">
+                    <div class="lg"><p>Bạn đã có tài khoản?</p><a href="index.php?controller=login&action=login">Login</a></div> 
                 </div>
+               
             </div>
         </form>
       </main>
+
+      <!-- Modal Structure -->
+      <div id="myModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <p id="modal-message"></p>
+          <button onclick="modal.style.display='none'">Okay</button>
+        </div>
+      </div>
+
+
       <footer>
         <div class="p1">
           <p>Name: Lê Quốc Huy</p>
@@ -54,6 +74,29 @@
         </div>
       </footer>
     </div>
+    <script>
+      var modal = document.getElementById("myModal");
+      var modalMessage = document.getElementById("modal-message");
+      var span = document.getElementsByClassName("close")[0];
+
+      // Show the modal with the message
+      function showModal(message) {
+          modalMessage.innerHTML = message;
+          modal.style.display = "block";
+      }
+
+      // Close the modal when 'x' is clicked
+      span.onclick = function() {
+          modal.style.display = "none";
+      }
+
+      // Close the modal if clicked outside the modal
+      window.onclick = function(event) {
+          if (event.target == modal) {
+              modal.style.display = "none";
+          }
+      }
+    </script>
   </body>
   
 </html>

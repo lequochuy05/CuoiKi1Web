@@ -30,4 +30,13 @@
             return $pass == $re_pass;
       
   }
+
+  function checkPassLength($password)
+  {
+      if (strlen($password) < 8) {
+          return false;
+      }else{
+        return true;
+      }
+  }
 ?>
