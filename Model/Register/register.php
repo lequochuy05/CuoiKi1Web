@@ -1,13 +1,12 @@
 <?php
     class db_register{
       #Insert Data
-      public function Insert($user, $pass){
+      public function Insert($user, $pass, $name, $email, $phone){
         $db = new Database();
         $conn = $db->connect();
-        $sql = "INSERT INTO danhsachtaikhoannguoidung(username, password) VALUES(?, ?)";
+        $sql = "INSERT INTO nguoidung(username, password, fullName, email, phone) VALUES(?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("ss", $user, $pass); 
-        $password = password_hash($pass, PASSWORD_DEFAULT);
+        $stmt->bind_param("sssss", $user, $pass, $name, $email, $phone); 
         $stmt->execute();
         return $stmt->affected_rows;
 
@@ -15,13 +14,16 @@
         mysqli_close($conn);
       }
         
-      #Update Data
+      #Update Password
       public function Update($user, $pass){
         $db= new Database();
         $conn = $db->connect();
-        $sql = "UPDATE danhsachtaikhoannguoidung SET password = '$pass'
-                WHERE username ='$user'";
-        return $db->execute($sql);
+        $sql = "UPDATE nguoidung SET password = ?;
+                WHERE username = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("ss",$pass ,$user);
+        $stmt->execute();
+        return $stmt->affected_rows;
         mysqli_close($conn);
     }
     }

@@ -9,25 +9,28 @@
             if(isset($_POST['login'])){
                 $input_user = $_POST['username'];
                 $input_pass = $_POST['password'];
-                $tblTable = "danhsachtaikhoannguoidung";
                
                 if (empty($input_user) || empty($input_pass)) {
-                    echo 'Please fill in all information.';
+                    $message = "Please fill in all information.";
                 } else {    
                     if(!$db_log->checkUserExistence($input_user, $input_pass)){
-                        echo 'Username/Password is Incorrect';
-                    }else{
-                    
-                    }
-                    
-                     
+                        $message = "Username/Password is Incorrect.";
+                    }else{     
+                         $message = "Login successful";     
+                    }                 
                 }               
             }
             require_once('View/Login/index.php');           
             break;
-
+        
+        case 'forgot_pass':
+            if(isset($_POST['forgot'])){
+        
+            }
+            require_once('View/Forgot_password/index.php');
+            break;
         default:
-            echo 'Unknown error.';
+            $message = "Unknown error.";
             break;
     }
 ?>

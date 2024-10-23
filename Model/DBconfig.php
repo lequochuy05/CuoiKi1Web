@@ -6,8 +6,6 @@
     private $dbname = 'cuoiki1';
 
     private $conn = NULL;
-    private $result = NULL;
-
     #Connect
     public function connect(){
         $this->conn = new mysqli($this->hostname, $this->username, $this->password, $this->dbname);
@@ -18,48 +16,8 @@
             mysqli_set_charset($this->conn, 'utf8');
            // echo 'Connected';
         }
-
-        return $this->conn;
-       
+        return $this->conn;      
     }
-    #execute sql
-    public function execute($sql) {
-        $this->result = $this->conn->query($sql);
-        return $this->result;
-    }
-
-    #get Data
-    public function getData(){
-        if($this->result){
-            $data = mysqli_fetch_array($this->result);
-        }else{
-            $data = 0;
-        }
-        return $data;
-    }
-
-    #get All Data
-    public function getAllData($table){
-        $sql = "SELECT * FROM $table";
-        $this->execute($sql);
-        if(!$this->num_rows() == 0){
-            $data = 0;
-        }else{
-            while($datas = $this->getData()){
-                $data[]= $datas;
-            }
-        }
-        return $data;
-    }
-    #Count
-    public function num_rows(){
-        if($this->result){
-            $num = mysqli_num_rows($this->result);  
-        }else{
-            $num = 0;
-        }
-        return 0;
-    }    
-    
+   
 }
 ?>

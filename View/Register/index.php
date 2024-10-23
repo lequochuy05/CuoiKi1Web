@@ -34,17 +34,16 @@
             <div class="main2">
             <div class="head">Register Form</div>
                 <div class="middle">
-                    <input
-                    type="text" name="username"
-                    placeholder="Email/Username"
-                    />
-                    <input type="password" name="password" placeholder="Password" />
-                    <input type="password" name="re_password" placeholder="Re-password" /> 
-                    <input type="captcha" name="captcha" hidden placeholder="Captcha code" />
+                <input type="text" name="fullName" placeholder="Full name" required />
+                    <input type="text" name="username" placeholder="Username" required />
+                    <input type="text" name="email" placeholder="Email" required />
+                    <input type="text" name="num_phone" placeholder="Phone number" required />
+                    <input type="password" name="password" placeholder="Password" required />
+                    <input type="password" name="re_password" placeholder="Re-password" required /> 
+                    <input type="captcha" name="captcha" hidden placeholder="Captcha code"/>
                     <input type="submit" name="add_account" value="Register">
                     <div class="lg"><p>Bạn đã có tài khoản?</p><a href="index.php?controller=login&action=login">Login</a></div> 
-                </div>
-               
+                </div>          
             </div>
         </form>
       </main>

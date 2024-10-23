@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="Shortcut icon" href="img/logo.png" />
-    <link rel="stylesheet" href="View/Register/style.css ">
-    <link rel="stylesheet" href="View/Login/style.css">
+    <link rel="Shortcut icon" href="img/logo.png" />   
+    <!-- <link rel="stylesheet" href="CSS/home_style.css"> -->
+    <link rel="stylesheet" href="CSS/logStyle.css ">
+    <link rel="stylesheet" href="CSS/forgot.css">
 </head>
 <body>
-    <script src="View/Register/register.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="JS/home_js.js"></script>
 </body>
 </html>
 <?php
@@ -33,6 +35,10 @@
         }
         case 'login':{
             require_once('Controller/Login/index.php');
+        }
+        case 'home':{
+            
+            require_once('Controller/Home/index.php');
         }
 
     }
