@@ -42,9 +42,9 @@
           <form action="" method="POST">
             <div class="head">Login</div>
             <div class="middle">
-              <input type="text" name="username" placeholder="Username" required />
+              <input type="text" name="username" placeholder="Username"/>
               <br />
-              <input type="password" name="password" placeholder="Password" required /> 
+              <input type="password" name="password" placeholder="Password"/> 
               <input type="submit" name="login" value="Login">
               <br />
               <div class="register-section">
@@ -58,7 +58,7 @@
                     <i class="fab fa-facebook-f"></i> Sign in with Facebook
                   </button>
                   <button class="btn-google">
-                    <i class="fab fa-google"></i>Sign in with Google
+                    <i class="fab fa-google"></i> Sign in with Google
                   </button>
                   <button class="btn-twitter">
                     <i class="fab fa-twitter"></i> Sign in with Twitter
